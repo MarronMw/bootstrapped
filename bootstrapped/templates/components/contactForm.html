@@ -1,0 +1,44 @@
+{% load static %}
+
+<section id="contact" class="contact-section py-5 reveal low-op-blue">
+  <div class="container">
+    <h2 class="blue text-center">Contact Us</h2>
+    <form id="emailForm">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            placeholder="Your Name"
+          />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="Your Email"
+          />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea
+          class="form-control"
+          id="message"
+          rows="4"
+          placeholder="Your Message"
+        ></textarea>
+      </div>
+      <button id="SEND-BTN" type="button" class="btn btn-primary bg-blue">
+        Generate Email
+      </button>
+      <a id="SEND" class="send_email btn btn-primary" href="#" role="button"
+        >Send Email</a
+      >
+    </form>
+  </div>
+</section>

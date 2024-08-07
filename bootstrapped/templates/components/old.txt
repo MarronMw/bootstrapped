@@ -1,0 +1,119 @@
+css-
+  .team {
+    min-height: 100vh;
+    height: fit-content;
+  }
+
+  .team__container {
+    /* grid-template-columns: 1fr 1fr;
+    gap: 0.7rem; */
+  }
+
+  .team__member {
+    padding: 0;
+  }
+
+  .team__member p {
+    margin-bottom: 1.5rem;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .about-section {
+    display: none;
+  }
+  #about:target {
+    display: block;
+  }
+
+  .team__container {
+    /* grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; */
+  }
+
+  .team__member {
+    padding: 1rem;
+  }
+}
+
+/* desktop */
+@media screen and(min-width:1024px) {
+  /* .team {
+    display: flex;
+  } */
+}
+
+
+.team h2 {
+  color: var(--blue);
+  text-align: center;
+  padding: 3rem;
+}
+
+/* .team__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-right: 2rem;
+} */
+
+.team__member {
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border: 1px solid transparent;
+  transition: all 0.5s;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+.team__member:hover {
+  background: transparent;
+  border-color: var(--blue);
+}
+
+/* .team__member-image img{
+width: fit-content;
+}  */
+
+.team__member-info * {
+  text-align: center;
+  margin-top: 1.4rem;
+}
+
+.team__member-socials {
+  position: absolute;
+  top: 50%;
+  right: -100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-primary);
+  border-radius: 1rem 0 0 1rem;
+  transform: translateY(-50%);
+  box-shadow: -2rem 0 2rem rgba(0, 0, 0, 0.3);
+  transition: all 0.5s;
+}
+
+.team__member:hover .team__member-socials {
+  right: 0;
+}
+
+.team__member-socials a {
+  padding: 1rem;
+}
+/* making the team section to be column-flex on mobile */
+@media screen and (max-width: 627px) {
+  .team__container {
+    display: flex;
+    flex-direction: column;
+    background: none;
+  }
+}
+
+/* on desktop making the team view centred */
+@media screen and (min-width: 1024px) {
+  .team__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-right: 2rem;
+  }
+}

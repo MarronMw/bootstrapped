@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Let's Go Travel</title>
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <!-- navbar -->
+    {% include 'components/navbar.html' %}
+    <!-- endof navbar -->
+    <!-- Hero Section -->
+    {% include 'components/hero.html' %}
+
+    <!-- about Section -->
+    {% include 'components/about.html' %}
+
+    <!-- product and services -->
+    {% include 'components/services.html' %}
+
+    <!-- culture Section -->
+    {% include 'components/culture.html' %}
+
+    <!-- Our team -->
+    {% include 'components/team.html' %}
+
+    <!-- END OF TEAM SECTION -->
+
+    <!-- contact section -->
+    {% include 'components/contactForm.html' %}
+    <!-- END OF CONTACT -->
+
+    <!-- Footer -->
+    {% include 'components/footer.html' %}
+    <!-- FOOTER END -->
+
+    {% include 'components/jsincludes.html' %}
+
+    <script src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>

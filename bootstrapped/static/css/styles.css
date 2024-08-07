@@ -1,0 +1,329 @@
+@import url(basestyles.css);
+
+/* Navbar Styles */
+.navbar {
+  padding: 1rem 2rem;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--gray);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-light .navbar-nav {
+  list-style: none; /* Remove bullet points */
+  padding-left: 0; /* Remove default padding */
+  display: flex; /* Align items horizontally */
+}
+
+.navbar-light .navbar-nav .nav-item {
+  margin-left: 1rem; /* Space between items */
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: var(--black);
+  font-size: 1.4rem;
+  padding: 0.5rem 1rem;
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: var(--blue);
+}
+
+.navbar-toggler {
+  border: none;
+  background: none;
+  font-size: 1.8rem;
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.menu-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  fill: var(--black);
+  transition: opacity 0.3s;
+}
+
+/* Hide menu icon on larger screens */
+@media (min-width: 992px) {
+  .navbar-toggler {
+    display: none; /* Hide button on larger screens */
+  }
+}
+
+.navbar-collapse {
+  display: flex; /* Ensure it uses flexbox */
+  justify-content: flex-end; /* Align items to the right */
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+/* Mobile styles */
+@media (max-width: 991px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .navbar-nav {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .navbar-nav .nav-item {
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+
+  .navbar-toggler {
+    display: block; /* Show button on mobile screens */
+  }
+
+  .navbar-collapse {
+    display: none; /* Hide by default */
+  }
+
+  .navbar-collapse.show {
+    display: block; /* Show when toggled */
+  }
+}
+
+/* Hero Section Styling */
+.hero-section {
+  background: url("{% static 'images/hero-bg.jpg' %}") no-repeat center center;
+  background-size: cover;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  text-align: center;
+}
+
+.hero-section .heading {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.hero-section .heading .small {
+  font-size: 1.2rem;
+  display: block;
+}
+
+.hero-section .heading .company-name {
+  font-size: 3rem;
+  color: var(--blue);
+}
+
+.hero-section h3 {
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+  font-weight: 300;
+  color: var(--gray);
+}
+
+.hero-section .motion {
+  margin-top: 2rem;
+}
+
+.hero-section .motion img {
+  width: 10rem;
+  height: auto;
+}
+
+@media (min-width: 576px) {
+  .hero-section .heading {
+    font-size: 3rem;
+  }
+
+  .hero-section .heading .company-name {
+    font-size: 3.5rem;
+  }
+
+  .hero-section h3 {
+    font-size: 1.75rem;
+  }
+
+  .hero-section .motion img {
+    width: 15rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-section .heading {
+    font-size: 3.5rem;
+  }
+
+  .hero-section .heading .company-name {
+    font-size: 4rem;
+  }
+
+  .hero-section h3 {
+    font-size: 2rem;
+  }
+
+  .hero-section .motion img {
+    width: 20rem;
+  }
+}
+
+/* Services Section Styles */
+.services-section {
+  background-color: var(--blue-low-opcacity);
+  padding: 5rem 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.services-section .brief-description {
+  font-size: 1.6rem;
+  color: var(--black);
+  margin-bottom: 3rem;
+  text-align: center;
+  max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.services-section .descript-icon {
+  font-size: 4rem;
+  color: var(--blue);
+  display: block;
+  margin: 0 auto 2rem;
+}
+
+.services-section .goals {
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.5rem; /* Added gap for spacing */
+}
+
+.services-section .box {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: calc(33.333% - 1rem);
+  flex: 1 1 calc(33.333% - 1rem);
+  box-sizing: border-box;
+}
+
+.services-section .box:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.services-section .goals_icons {
+  font-size: 3rem;
+  color: var(--blue);
+  margin-bottom: 1rem;
+}
+
+.services-section h3.blue {
+  font-size: 2rem;
+  color: var(--blue);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.services-section p {
+  font-size: 1.4rem;
+  color: var(--black);
+}
+
+@media (max-width: 767px) {
+  .services-section .box {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+/* END OF ABOUT US, THE OUR VISION PART */
+
+/* Product and Services Section Styles */
+#product-and-services {
+  background-color: var(--blue-low-opcacity);
+  padding: 5rem 0;
+}
+
+#product-and-services h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 4rem;
+}
+
+#product-and-services .card {
+  border: none;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#product-and-services .card:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#product-and-services .card-img {
+  width: 50%;
+  height: 20%;
+  object-fit: cover;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+#product-and-services .card-body {
+  padding: 2rem;
+}
+
+#product-and-services .card-title {
+  font-size: 2.4rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #18bef0;
+}
+
+#product-and-services .card-text {
+  font-size: 1.6rem;
+  color: var(--black);
+  /* Add max-width with word break to handle long text */
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+@media (min-width: 768px) {
+  #product-and-services .card-text {
+    max-width: calc(75ch);
+  }
+}
+
+@media (max-width: 767px) {
+  #product-and-services .card-text {
+    max-width: calc(60ch);
+  }
+
+  #product-and-services .card-img {
+    height: 200px; /* Adjust this height as needed to maintain consistency */
+  }
+}

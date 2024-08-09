@@ -187,7 +187,7 @@
 
 /* Services Section Styles */
 .services-section {
-  background-color: var(--blue-low-opcacity);
+  background-color: var(--blue-low-opacity);
   padding: 5rem 0;
   min-height: 100vh;
   display: flex;
@@ -312,6 +312,46 @@
   width: 100%;
   height: 100%;
 }
+/* Base styles for larger screens (already provided) */
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  #product-and-services {
+    padding: 2rem 1rem; /* Add padding to reduce content touching screen edges */
+  }
+
+  #product-and-services h2 {
+    font-size: 28px; /* Smaller font size for the heading on mobile */
+    text-align: center; /* Center the heading text */
+  }
+
+  #product-and-services .cards-container .card {
+    width: 100%; /* Adjust the card to take full width */
+    height: auto; /* Adjust height to auto for better fit on smaller screens */
+    padding: 1.5rem; /* Adjust padding for a more compact layout */
+  }
+
+  #product-and-services .cards-container .card .row {
+    flex-direction: column; /* Stack image and text vertically */
+    border-radius: 1rem; /* Apply a uniform border-radius for a clean look */
+  }
+
+  #product-and-services .cards-container .card .row .img-container {
+    width: 100%; /* Ensure image container takes full width */
+    height: auto; /* Let the height adjust based on the image aspect ratio */
+    border-right: none; /* Remove the border-right as it doesn't make sense when stacked */
+    border-bottom: 2px solid var(--gray); /* Add a border at the bottom for separation */
+  }
+
+  #product-and-services .cards-container .card .row .text-container {
+    padding: 1.5rem; /* Adjust padding for a more compact layout */
+  }
+
+  #product-and-services .cards-container .card .row .card-img {
+    width: 100%; /* Image takes full width */
+    height: auto; /* Image height adjusts automatically */
+    object-fit: cover; /* Ensure the image covers the container without distortion */
+  }
+}
 
 /* TEAM SECTION */
 .team {
@@ -385,9 +425,7 @@
   transform: translateY(-50%);
   display: none;
   flex-direction: column;
-  background-color: var(
-    --blue
-  ); /* Primary color from Let's Go Travel project */
+  background-color: var(--gray); /*socials*/
   padding: 0.5rem;
   border-radius: 0.5rem;
   opacity: 0;
@@ -499,4 +537,51 @@
     width: 100%;
     padding: 1rem;
   }
+}
+
+/* FOOTER */
+footer {
+  background: url(../images/travevl3.webp);
+  background-color: rgba(0, 0, 0, 0.5); /* Black background for the footer */
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-position: top;
+  color: var(--white); /* White text color */
+  padding: 1.5rem 0;
+  font-size: 1.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer .container {
+  display: flex;
+  justify-content: center;
+
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+footer a {
+  color: var(--white); /* Default link color */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: blue; /* Change link color on hover */
+}
+
+footer .fa-brands {
+  margin-right: 0.5rem;
+}
+
+footer .fa-whatsapp {
+  color: var(--white); /* Green color for WhatsApp icon */
+}
+
+footer p {
+  margin: 0;
+  font-size: 1.4rem;
 }

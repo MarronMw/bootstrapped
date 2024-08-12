@@ -462,6 +462,12 @@
   padding: 3rem 1.5rem;
 }
 
+.contact-section .container #emailForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .contact-section h2 {
   font-size: 2.8rem;
   color: var(--blue); /* Blue text color */

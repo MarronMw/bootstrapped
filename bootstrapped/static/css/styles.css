@@ -1,4 +1,5 @@
 @import url(basestyles.css);
+@import url(login.css);
 
 /* Navbar Styles */
 .navbar {
@@ -410,12 +411,14 @@
   font-size: 1.8rem;
   color: var(--blue);
   margin-bottom: 0.5rem;
+  text-transform: capitalize;
 }
 
 .team__member-info p {
   font-size: 1.4rem;
   color: var(--black);
   margin-bottom: 1.5rem;
+  text-transform: capitalize;
 }
 
 .team__member-socials {

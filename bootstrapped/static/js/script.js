@@ -44,3 +44,68 @@ document.getElementById("SEND").addEventListener("click", function () {
   // Hide the "Send Email" button again
   document.getElementById("SEND").style.display = "none";
 });
+
+//LOGIN SCRIPT
+document.addEventListener("DOMContentLoaded", function () {
+  const teamMembers = document.querySelectorAll(".team__member");
+
+  teamMembers.forEach(function (teamMember) {
+    const triggerImage = teamMember.querySelector(".trigger-image");
+    const loginForm = teamMember.querySelector(".login-form");
+    const loginFormSubmit = loginForm.querySelector("form");
+
+    let formDisplayed = false;
+
+    // Create and append the close button dynamically
+    const closeButton = document.createElement("button");
+    closeButton.textContent = "Close";
+    closeButton.style.display = "block";
+    loginForm.appendChild(closeButton);
+
+    // Function to show the login form and blur the profile pic, name, and position
+    function showLoginForm() {
+      loginForm.style.display = "block";
+      teamMember.classList.add("blur");
+      formDisplayed = true;
+    }
+
+    // Event listener for double-click functionality
+    triggerImage.addEventListener("dblclick", function () {
+      showLoginForm();
+    });
+
+    // Close button functionality
+    closeButton.addEventListener("click", function () {
+      loginForm.style.display = "none";
+      teamMember.classList.remove("blur");
+      formDisplayed = false;
+    });
+
+    // Prevent login form from disappearing when interacting with it
+    loginForm.addEventListener("click", function (event) {
+      event.stopPropagation();
+    });
+
+    // Close form if user clicks outside of it
+    document.addEventListener("click", function (event) {
+      if (formDisplayed && !loginForm.contains(event.target)) {
+        loginForm.style.display = "none";
+        teamMember.classList.remove("blur");
+        formDisplayed = false;
+      }
+    });
+
+    // Handle form submission
+    loginFormSubmit.addEventListener("submit", function (event) {
+      // event.preventDefault();
+      // Your form submission logic here
+
+      // After submission, hide the form
+      loginForm.style.display = "none";
+      teamMember.classList.remove("blur");
+      formDisplayed = false;
+    });
+  });
+});
+
+//END OF LOGIN SCRIPT

@@ -1,72 +1,36 @@
-{% load static %}
-
-<section
-  style="min-height: 100vh; height: fit-content"
-  class="team reveal low-op-blue"
->
+<section style="min-height: 100vh; height: fit-content" class="team reveal low-op-blue">
   <h2>Meet Our Team</h2>
   <div class="container team__container">
+    <!-- loaded from db -->
+    {% for staff_member in staff %}
     <article class="team__member">
       <div class="team__member-image">
-        <img src="{% static 'images/avatar1.webp' %}" alt="" />
+        <img id="triggerImage-{{staff_member.id}}" src="{{staff_member.dp.url}}" alt="" class="trigger-image" />
       </div>
       <div class="team__member-info">
-        <h4>Bertha Makhumula</h4>
-        <p>Manager</p>
+        <h4>{{staff_member.fname}} {{staff_member.lname}}</h4>
+        <p>{{staff_member.position}}</p>
       </div>
       <div class="team__member-socials">
-        <a href="https://instagram" target="_blank"
-          ><i class="fa-brands fa-instagram"></i
-        ></a>
-        <a href="https://instagram" target="_blank"
-          ><i class="fa-brands fa-twitter"></i
-        ></a>
-        <a href="https://instagram" target="_blank"
-          ><i class="fa-brands fa-linkedin"></i
-        ></a>
+        <a href="https://wa.me/{{staff_member.whatsapp}}?text='hello {{staff_member.fname}}, I am contacting you from your website.'"
+          target='_blank'><i class='fa-brands fa-whatsapp'></i></a>
+        <a href="https://instagram" target="_blank"><i class="fa-light fa-phone"></i></a>
+        <a href="https://instagram" target="_blank"><i class="fa-regular fa-envelope"></i></a>
       </div>
+
+      <!-- Hidden Login Form -->
+      <div id="loginForm-{{staff_member.id}}" class="login-form">
+        <form action="{% url 'main:staff_dash' staff_member.id %}" method="post">
+          {% csrf_token %}
+          <h2>Login</h2>
+          <input name="pwd" type="password" placeholder="Enter Password" />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <!-- end of login hidden form -->
+
     </article>
-    <article class="team__member">
-      <div class="team__member-image">
-        <img src="{% static 'images/avatar3.webp' %}" alt="" />
-      </div>
-      <div class="team__member-info">
-        <h4>Maranatha Ndege</h4>
-        <p>IT Manager</p>
-      </div>
-      <div class="team__member-socials">
-        <a href="https://instagram" target="_blank"
-          ><i class="fa-brands fa-instagram"></i
-        ></a>
-        <a href="https://instagram" target="_blank"
-          ><i class="fa-brands fa-twitter"></i
-        ></a>
-        <a href="https://instagram" target="_blank"
-          ><i class="fa-brands fa-linkedin"></i
-        ></a>
-      </div>
-    </article>
-    <article class="team__member">
-      <div class="team__member-image">
-        <img src="{% static 'images/avatar4.webp' %}" alt="" />
-      </div>
-      <div class="team__member-info">
-        <h4>Victoria Lester</h4>
-        <p>Consulting Officer</p>
-      </div>
-      <div class="team__member-socials">
-        <a href="https://instagram" target="_blank"
-          ><i class="fa-brands fa-instagram"></i
-        ></a>
-        <a href="https://instagram" target="_blank"
-          ><i class="fa-brands fa-twitter"></i
-        ></a>
-        <a href="https://instagram" target="_blank"
-          ><i class="fa-brands fa-linkedin"></i
-        ></a>
-      </div>
-    </article>
+    {% endfor %}
+    <!-- end of loaded from db -->
   </div>
 </section>
-
-

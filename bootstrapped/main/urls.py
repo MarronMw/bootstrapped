@@ -12,6 +12,7 @@ urlpatterns = [
     path('destinations/', views.desinations,name="destinations"),
     path('tourpackages/', views.tourPackage,name="tourpackage"),
     path('allDestinations/', views.allDestinations,name="destinations-all"),
+    path('staff_dash/<int:id>',views.staff_dashboard,name="staff_dash"),
 
 ]
 

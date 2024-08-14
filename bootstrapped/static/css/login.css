@@ -1,0 +1,21 @@
+/* Style for the login form */
+.login-form {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 1002; /* Ensure it's on top of everything else */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Blur effect for the profile pic, name, and position */
+.team__member.blur .team__member-image,
+.team__member.blur .team__member-info h4,
+.team__member.blur .team__member-info p {
+  filter: blur(5px);
+  transition: filter 0.3s ease-in-out;
+}

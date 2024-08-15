@@ -51,20 +51,61 @@
         <p>Browse through all our available travel destinations</p>
       </div>
       <div class="row" id="destination-cards">
-        <!-- Destination cards will be injected here by JavaScript -->
+        {% for destination in destinations %}
+        <div class="col-md-4 destination-card">
+          <div class="card">
+            <img
+              src="{{ destination.image.url }}"
+              class="card-img-top"
+              alt="{{ destination.name }}"
+            />
+            <div class="card-body">
+              <h5 class="card-title">{{ destination.name }}</h5>
+              <p class="card-description">{{ destination.description }}</p>
+              <p class="card-text">
+                Discover the beauty and culture of {{ destination.name }}.
+              </p>
+              <button
+                class="btn btn-primary"
+                onclick="learnMore('{{ destination.name }}', '{{ destination.description }}')"
+              >
+                Learn More
+              </button>
+            </div>
+          </div>
+        </div>
+        {% empty %}
+        <p>No destinations available at this time.</p>
+        {% endfor %}
       </div>
+
       <nav>
         <ul class="pagination">
+          {% if destinations.has_previous %}
           <li class="page-item">
-            <a class="page-link" href="#" onclick="loadPage(1)">1</a>
+            <a
+              class="page-link"
+              href="?page={{ destinations.previous_page_number }}"
+            >
+              Previous
+            </a>
           </li>
+          {% endif %} {% for page_num in destinations.paginator.page_range %}
+          <li
+            class="page-item {% if destinations.number == page_num %}active{% endif %}"
+          >
+            <a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a>
+          </li>
+          {% endfor %} {% if destinations.has_next %}
           <li class="page-item">
-            <a class="page-link" href="#" onclick="loadPage(2)">2</a>
+            <a
+              class="page-link"
+              href="?page={{ destinations.next_page_number }}"
+            >
+              Next
+            </a>
           </li>
-          <li class="page-item">
-            <a class="page-link" href="#" onclick="loadPage(3)">3</a>
-          </li>
-          <!-- Add more page items as needed -->
+          {% endif %}
         </ul>
       </nav>
     </div>
@@ -79,73 +120,6 @@
     </div>
 
     <script>
-      const destinations = [
-        { name: "Paris", image: "https://source.unsplash.com/300x200/?paris" },
-        {
-          name: "New York",
-          image: "https://source.unsplash.com/300x200/?new-york",
-        },
-        { name: "Tokyo", image: "https://source.unsplash.com/300x200/?tokyo" },
-        { name: "Rome", image: "https://source.unsplash.com/300x200/?rome" },
-        {
-          name: "Sydney",
-          image: "https://source.unsplash.com/300x200/?sydney",
-        },
-        {
-          name: "Cape Town",
-          image: "https://source.unsplash.com/300x200/?cape-town",
-        },
-        {
-          name: "London",
-          image: "https://source.unsplash.com/300x200/?london",
-        },
-        {
-          name: "Barcelona",
-          image: "https://source.unsplash.com/300x200/?barcelona",
-        },
-        { name: "Dubai", image: "https://source.unsplash.com/300x200/?dubai" },
-        {
-          name: "Singapore",
-          image: "https://source.unsplash.com/300x200/?singapore",
-        },
-        {
-          name: "Bangkok",
-          image: "https://source.unsplash.com/300x200/?bangkok",
-        },
-        {
-          name: "Istanbul",
-          image: "https://source.unsplash.com/300x200/?istanbul",
-        },
-        // Add more destinations as needed
-      ];
-
-      const itemsPerPage = 10;
-
-      function loadPage(page) {
-        const start = (page - 1) * itemsPerPage;
-        const end = start + itemsPerPage;
-        const pageDestinations = destinations.slice(start, end);
-
-        const destinationCards = document.getElementById("destination-cards");
-        destinationCards.innerHTML = "";
-
-        pageDestinations.forEach((destination) => {
-          const card = `
-                    <div class="col-md-4 destination-card">
-                        <div class="card">
-                            <img src="${destination.image}" class="card-img-top" alt="${destination.name}">
-                            <div class="card-body">
-                                <h5 class="card-title">${destination.name}</h5>
-                                <p class="card-text">Discover the beauty and culture of ${destination.name}.</p>
-                                <button class="btn btn-primary" onclick="learnMore('${destination.name}', 'Discover the beauty and culture of ${destination.name}.')">Learn More</button>
-                            </div>
-                        </div>
-                    </div>
-                `;
-          destinationCards.insertAdjacentHTML("beforeend", card);
-        });
-      }
-
       function learnMore(title, description) {
         document.getElementById("modal-title").innerText = title;
         document.getElementById("modal-description").innerText = description;
@@ -161,8 +135,6 @@
       function enquire() {
         alert("Enquiry feature coming soon!");
       }
-
-      document.addEventListener("DOMContentLoaded", () => loadPage(1));
     </script>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

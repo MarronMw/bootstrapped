@@ -40,3 +40,10 @@ class Staff(models.Model):
     linkedIn=models.CharField(max_length=1024,blank=True)
     phone=models.CharField(max_length=14)
 # END OF INTERFACE MODIFICATION MODELS
+
+#START OF DESTINATION MODELS
+class Destination(models.Model):
+    name=models.CharField(max_length=255)
+    description=models.CharField(max_length=1024)
+    image=models.ImageField(default="img.png")
+#END OF DESTINATION MODELS

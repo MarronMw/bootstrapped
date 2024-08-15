@@ -1,6 +1,6 @@
 from django.shortcuts import render,get_object_or_404,redirect
 #interface models import
-from .models import Company,Hero,Pillars,Service,Culture,Staff
+from .models import Company,Hero,Pillars,Service,Culture,Staff,Destination
 
 # Create your views here.
 def index(request):
@@ -14,7 +14,11 @@ def desinations(request):
     return render(request,"destinations.html")
 
 def allDestinations(request):
-    return render(request,"allDestinations.html")
+    destinations=Destination.objects.all()
+    context={
+        "destinations":destinations
+    }
+    return render(request,"allDestinations.html",context)
 
 def tourPackage(request):
     return render(request,"tourpackage.html")
